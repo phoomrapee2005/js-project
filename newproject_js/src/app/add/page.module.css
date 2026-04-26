@@ -1,0 +1,29 @@
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.header p {
+  color: var(--foreground-muted);
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.formContainer {
+  /* ProductForm handles most of the styling now */
+  margin-top: 1rem;
+}

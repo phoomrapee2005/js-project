@@ -1,0 +1,105 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #101118;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.noImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--foreground-muted);
+  font-size: 0.75rem;
+}
+
+.details {
+  flex: 1;
+}
+
+.details h4 {
+  color: var(--foreground);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.price {
+  color: var(--foreground-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.total {
+  text-align: right;
+  margin-right: 1.5rem;
+}
+
+.total p {
+  color: var(--foreground);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.removeButton {
+  padding: 0.7rem 1.2rem;
+  background: rgba(255, 71, 87, 0.08);
+  color: var(--danger);
+  border: 1px solid rgba(255, 71, 87, 0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.removeButton:hover {
+  background: var(--danger);
+  color: white;
+  border-color: var(--danger);
+}
+
+@media (max-width: 768px) {
+  .item {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .total {
+    width: 100%;
+    text-align: left;
+    margin-right: 0;
+  }
+}

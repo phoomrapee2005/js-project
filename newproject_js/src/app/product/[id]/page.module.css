@@ -1,0 +1,232 @@
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  margin-bottom: 5rem;
+  align-items: start;
+}
+
+.imageSection {
+  background: var(--surface);
+  border-radius: 32px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.imageSection img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.imageSection:hover img {
+  transform: scale(1.05);
+}
+
+.noImage {
+  color: var(--foreground-muted);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.breadcrumbs {
+  color: var(--foreground-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.breadcrumbs a {
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+
+.breadcrumbs span {
+  margin-left: 0.5rem;
+  opacity: 0.7;
+}
+
+.condition {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.new {
+  background: rgba(0, 242, 145, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(0, 242, 145, 0.3);
+}
+
+.used {
+  background: rgba(255, 165, 2, 0.15);
+  color: var(--warning);
+  border: 1px solid rgba(255, 165, 2, 0.3);
+}
+
+.info h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.brand {
+  color: var(--foreground-muted);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.category {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.price {
+  font-size: 3rem;
+  color: var(--foreground);
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.stock {
+  color: var(--foreground-muted);
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.addButton {
+  padding: 1.2rem 2.5rem;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 18px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.addButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 242, 145, 0.3);
+  filter: brightness(1.1);
+}
+
+.editLink {
+  text-align: center;
+  color: var(--foreground-muted);
+  text-decoration: none;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+
+.editLink:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--foreground);
+  border-color: var(--foreground-muted);
+}
+
+.details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  padding: 3rem;
+}
+
+.details h2 {
+  color: var(--foreground);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+
+.details h2:first-child {
+  margin-top: 0;
+}
+
+.details p {
+  color: var(--foreground-muted);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.seller {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+.seller p {
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.seller p strong {
+  color: var(--foreground);
+  margin-right: 0.5rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .imageSection {
+    aspect-ratio: 4/3;
+  }
+  .info h1 {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000/api/products)",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(rmdir /s /q .next\\\\dev\\\\lock)",
+      "Bash(rmdir /s /q .next)",
+      "Bash(taskkill /F /FI \"PID ne 1\" /IM node.exe)",
+      "Bash(del /f /q .next\\\\dev\\\\lock)"
+    ]
+  }
+}

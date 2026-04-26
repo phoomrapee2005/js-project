@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model cart_items {
+  id         Int       @id @default(autoincrement())
+  product_id Int
+  quantity   Int?      @default(1)
+  session_id String    @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.Timestamp(0)
+  products   products  @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_cart_items_product")
+
+  @@index([product_id], map: "idx_cart_items_product")
+}
+
+model order_items {
+  id         Int      @id @default(autoincrement())
+  order_id   Int
+  product_id Int
+  quantity   Int
+  price      Decimal  @db.Decimal(10, 2)
+  orders     orders   @relation(fields: [order_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_order_items_order")
+  products   products @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_order_items_product")
+
+  @@index([order_id], map: "idx_order_items_order")
+  @@index([product_id], map: "idx_order_items_product")
+}
+
+model orders {
+  id              Int                    @id @default(autoincrement())
+  session_id      String?                @db.VarChar(255)
+  customer_name   String                 @db.VarChar(255)
+  customer_phone  String                 @db.VarChar(20)
+  address         String                 @db.Text
+  postal_code     String                 @db.VarChar(10)
+  shipping_method orders_shipping_method
+  shipping_cost   Decimal                @db.Decimal(10, 2)
+  total_amount    Decimal                @db.Decimal(10, 2)
+  status          orders_status?         @default(pending)
+  payment_proof   String?                @db.VarChar(500)
+  created_at      DateTime?              @default(now()) @db.Timestamp(0)
+  order_items     order_items[]
+}
+
+model products {
+  id           Int                @id @default(autoincrement())
+  name         String             @db.VarChar(255)
+  brand        String             @db.VarChar(100)
+  category     products_category
+  model        String?            @db.VarChar(255)
+  description  String?            @db.Text
+  condition    products_condition
+  quantity     Int?               @default(1)
+  price        Decimal            @db.Decimal(10, 2)
+  image_url    String?            @db.VarChar(500)
+  seller_name  String             @db.VarChar(255)
+  seller_phone String             @db.VarChar(20)
+  created_at   DateTime?          @default(now()) @db.Timestamp(0)
+  updated_at   DateTime?          @default(now()) @db.Timestamp(0)
+  cart_items   cart_items[]
+  order_items  order_items[]
+}
+
+enum products_category {
+  mouse
+  keyboard
+  headset
+  mousepad
+  other
+}
+
+enum orders_shipping_method {
+  standard
+  express
+}
+
+enum products_condition {
+  new
+  used
+}
+
+enum orders_status {
+  pending
+  paid
+  shipped
+  delivered
+}
