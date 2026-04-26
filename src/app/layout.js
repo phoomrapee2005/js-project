@@ -15,10 +15,8 @@ export const metadata = {
 // Root Layout: เป็น Layout หลักที่ครอบทุกหน้าในแอปพลิเคชัน
 export default function RootLayout({ children }) {
   return (
-    <html lang="en"> {/* กำหนดภาษาของหน้าเว็บเป็นภาษาอังกฤษ */}
-      <body className={inter.className}> {/* ใช้ฟอนต์ Inter กับทุกเนื้อหาในหน้า */}
-        {children} {/* แสดงเนื้อหาของแต่ละหน้าที่เรียกใช้ Layout นี้ */}
-      </body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
